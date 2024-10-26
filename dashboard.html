@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2>My Dashboard</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li> 
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#logout">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header>
+                <h1>Dashboard</h1>
+                <button id="toggle-sidebar">☰</button>
+            </header>
+
+            <!-- Home Content -->
+            <section class="content" id="home">
+                <h2>Welcome My Dashboard</h2>
+                <p></p>
+            </section>
+
+            <!-- Analytics Content -->
+            <section class="content" id="analytics">
+                <h2>Data Penjualan (Januari - Desember)</h2>
+                <canvas id="salesChart" width="400" height="200"></canvas>
+                
+                <h2>Data Pendapatan Penjualan Buku</h2>
+                <table class="sales-table" id="sales-table">
+                    <thead>
+                        <tr>
+                            <th>Bulan</th>
+                            <th>Penjualan</th>
+                            <th>Pendapatan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Januari</td><td>120</td><td>Rp 12.000.000</td></tr>
+                        <tr><td>Februari</td><td>150</td><td>Rp 15.000.000</td></tr>
+                        <tr><td>Maret</td><td>180</td><td>Rp 18.000.000</td></tr>
+                        <tr><td>April</td><td>200</td><td>Rp 20.000.000</td></tr>
+                        <tr><td>Mei</td><td>160</td><td>Rp 16.000.000</td></tr>
+                        <tr><td>Juni</td><td>140</td><td>Rp 14.000.000</td></tr>
+                        <tr><td>Juli</td><td>210</td><td>Rp 21.000.000</td></tr>
+                        <tr><td>Agustus</td><td>190</td><td>Rp 19.000.000</td></tr>
+                        <tr><td>September</td><td>230</td><td>Rp 23.000.000</td></tr>
+                        <tr><td>Oktober</td><td>250</td><td>Rp 25.000.000</td></tr>
+                        <tr><td>November</td><td>220</td><td>Rp 22.000.000</td></tr>
+                        <tr><td>Desember</td><td>300</td><td>Rp 30.000.000</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Mengaktifkan DataTables untuk Tabel Penjualan
+        $(document).ready(function() {
+            $('#sales-table').DataTable();
+        });
+
+        // Konfigurasi Chart.js untuk Menampilkan Grafik Penjualan
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                datasets: [{
+                    label: 'Penjualan',
+                    data: [120, 150, 180, 200, 160, 140, 210, 190, 230, 250, 220, 300],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

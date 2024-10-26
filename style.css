@@ -1,0 +1,145 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px; /* Ubah lebar sidebar */
+    background-color: #2f3542;
+    color: #fff;
+    padding-top: 20px;
+    position: fixed;
+    height: 100%; /* Mengatur tinggi sidebar menjadi 100% */
+    transition: width 0.3s;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #57606f;
+    border-radius: 5px;
+}
+
+.main-content {
+    margin-left: 250px; /* Sesuaikan margin kiri dengan lebar sidebar */
+    width: calc(100% - 250px); /* Mengatur lebar konten utama */
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2f3542;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.sales-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.sales-table th, .sales-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.sales-table th {
+    background-color: #2f3542;
+    color: white;
+}
+
+.sales-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Responsive */
+@media (max-width: 768px) { /* Mengubah ukuran maksimal untuk responsif */
+    .sidebar {
+        width: 60px; /* Lebar sidebar untuk tampilan lebih kecil */
+    }
+
+    .sidebar ul li {
+        padding: 10px 5px;
+        text-align: center;
+    }
+
+    .main-content {
+        margin-left: 60px; /* Mengubah margin untuk konten utama */
+        width: calc(100% - 60px); /* Mengubah lebar konten utama */
+    }
+}
+
+/* Portfolio Section */
+.about-me, .my-projects, .what-i-do {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-me h3, .my-projects h3, .what-i-do h3 {
+    color: #2f3542;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.project-gallery, .activity-gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.project-gallery img, .activity-gallery img {
+    width: 100%;
+    max-width: 100px; /* Mengatur ukuran maksimum gambar menjadi 200px */
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
